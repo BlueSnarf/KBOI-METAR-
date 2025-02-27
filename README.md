@@ -1,4 +1,4 @@
-This is a simple Python script that grabs the most current METAR weather report from any airport in the US. It uses the tabulate library to display data in an organized way, it includes imperial and metric measurements for most categories, but adding in the visibility and wind speed is still a work in progress.
+This is a simple Python script that grabs the most current METAR weather report from any airport in the US. It uses the tabulate library to display data in an organized way, it includes imperial and metric measurements for most categories, but adding in km/h for wind speed is still a work in progress.
 
 The API is sourced from [CheckWX API](https://www.checkwxapi.com/) and is completely free, and allows for up to 3,000 requests every day at no charge
 
