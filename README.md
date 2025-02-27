@@ -1,0 +1,1 @@
+This is a simple Python script that grabs the most current METAR weather report from any airport in the US. It uses the tabulate library to display data in an organized way, it includes imperial and metric measurements for everything
