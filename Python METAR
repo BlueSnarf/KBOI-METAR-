@@ -1,0 +1,59 @@
+import requests
+from tabulate import tabulate
+
+# Prompt the user for an ICAO code
+icao_code = input("Enter the Airport ICAO code (e.g., KBOI): ").strip().upper()
+
+# API URL and Key
+url = f"https://api.checkwx.com/metar/{icao_code}/decoded"
+headers = {'X-API-Key': 'ba20bca36f894698925b3449d2'}
+
+# Fetch the data
+response = requests.get(url, headers=headers)
+
+# Check if the response was successful
+if response.status_code == 200:
+    data = response.json()
+    
+    # Check if data['data'] exists and is not empty
+    if 'data' in data and data['data']:
+        wind_data = data['data'][0].get('wind', {})
+
+        # Handle condition checking
+        conditions = data['data'][0].get('conditions', [])
+        if not conditions:  # If conditions are empty or not present
+            condition_text = "Clear"
+        else:
+            condition_text = conditions[0]['text']
+
+        # Convert Celsius to Fahrenheit
+        temp_celsius = data['data'][0]['temperature']['celsius']
+        temp_fahrenheit = temp_celsius * 9 / 5 + 32
+
+        # Convert wind speed to mph
+        wind_speed_knots = wind_data.get('speed_kts', 0)
+        wind_speed_mph = wind_speed_knots * 1.15078
+
+        # Convert visibility to kilometers and miles
+        visibility_meters = data['data'][0]['visibility']['meters']
+        visibility_km = visibility_meters / 1000  # 1 km = 1000 meters
+        visibility_miles = visibility_meters * 0.000621371  # 1 meter ≈ 0.000621371 miles
+
+        # Display the METAR data
+        metar_data = [
+            ["Station", data['data'][0]['icao']],
+            ["Airport", data['data'][0]['station']['name']],
+            ["Observation Time", data['data'][0]['observed']],
+            ["Temperature", f"{temp_celsius}°C / {temp_fahrenheit:.1f}°F"],
+            ["Wind", f"{wind_data.get('degrees', 'Calm')}° at {wind_speed_knots} knots ({wind_speed_mph:.1f} mph)"],
+            ["Visibility", f"{visibility_km:.2f} km / {visibility_miles:.2f} miles"],
+            ["Pressure", f"{data['data'][0]['barometer']['hpa']} hPa"],
+            ["Condition", condition_text]
+        ]
+
+        # Display data as a table
+        print(tabulate(metar_data, tablefmt="grid"))
+    else:
+        print(f"No METAR data found for ICAO code {icao_code}. Please try again.")
+else:
+    print(f"Error: Unable to fetch data (HTTP {response.status_code})")
