@@ -6,7 +6,7 @@ icao_code = input("Enter the Airport ICAO code (e.g., KBOI): ").strip().upper()
 
 # API URL and Key
 url = f"https://api.checkwx.com/metar/{icao_code}/decoded"
-headers = {'X-API-Key': 'ba20bca36f894698925b3449d2'}
+headers = {'X-API-Key': 'INPUT API KEY HERE'}
 
 # Fetch the data
 response = requests.get(url, headers=headers)
