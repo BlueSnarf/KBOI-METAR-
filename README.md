@@ -13,20 +13,9 @@ Have fun!
 
 Example output from KLAX:
 
-+------------------+-----------------------------------+
-| Station          | KLAX                              |
-+------------------+-----------------------------------+
-| Airport          | Los Angeles International Airport |
-+------------------+-----------------------------------+
-| Observation Time | 2025-02-27T01:53:00               |
-+------------------+-----------------------------------+
-| Temperature      | 12°C / 53.6°F                     |
-+------------------+-----------------------------------+
-| Wind             | 260° at 9 knots (10.4 mph)        |
-+------------------+-----------------------------------+
-| Visibility       | 2400.0 meters                     |
-+------------------+-----------------------------------+
-| Pressure         | 1014.0 hPa                        |
-+------------------+-----------------------------------+
-| Condition        | Mist                              |
-+------------------+-----------------------------------+
+| Station | Temperature | Dew Point | Wind | Visibility | Pressure | Conditions |
+|---------|------------|-----------|------|------------|----------|------------|
+| KBOI    | 12°C       | 5°C       | 10 kt | 10 sm      | 1015 hPa | Clear      |
+
+
+**Github refused to display it how it displays in the code editor but it should look similar to this**
