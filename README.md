@@ -26,4 +26,4 @@ Example output from KLAX:
 
 
 
-**Github refused to display it how it displays in the code editor but it should look similar to this**
+**It should look similar to this, but this might not be exact**
