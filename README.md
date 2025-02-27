@@ -19,7 +19,7 @@ Example output from KLAX:
 | Observation Time | 2025-02-26T18:00:00Z |
 | Temperature | 18°C / 64.4°F             |
 | Wind | 280° at 10 knots (11.5 mph)      |
-| Visibility | 16093 meters               |
+| Visibility | 0.8km / 0.5 miles          |
 | Pressure | 1012 hPa                     |
 | Condition | Mostly Clear                |
 
